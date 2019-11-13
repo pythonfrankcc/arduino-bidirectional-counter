@@ -38,13 +38,13 @@ void setup() {
 
   ultrasonic1.initialize();
   ultrasonic2.initialize();
-  pinMode(AllClearLed,OUTPUT);
-  pinMode(TrappedLed,OUTPUT);
-  pinMode(BuzzerTrigger,OUTPUT);
-  lcd.setCursor(0,0);
+  pinMode(AllClearLed, OUTPUT);
+  pinMode(TrappedLed, OUTPUT);
+  pinMode(BuzzerTrigger, OUTPUT);
+  lcd.setCursor(0, 0);
   lcd.print("HELP SAVE");
   //delay(lcd_dynamic);
-  lcd.setCursor(0,1);
+  lcd.setCursor(0, 1);
   lcd.print(" BY E.E.B.C");
   delay(lcd_starter_delay);
 
@@ -54,7 +54,7 @@ void loop() {
   int sensor_one_distance =  ultrasonic1.getDistance();
   int sensor_two_distance = ultrasonic2.getDistance();
 
-  
+
   Serial.print("Ultrasonic 1 => ");
   Serial.print(sensor_one_distance);
   Serial.print("  Ultrasonic 2 => ");
@@ -101,31 +101,31 @@ void loop() {
 
   delay(1000);
 
-  if (total_number_of_people > 0){
-    digitalWrite(TrappedLed,HIGH);
-    digitalWrite(BuzzerTrigger,HIGH);
+  if (total_number_of_people > 0) {
+    digitalWrite(TrappedLed, HIGH);
+    digitalWrite(BuzzerTrigger, HIGH);
     delay(300);
-    digitalWrite(TrappedLed,LOW);;
-    digitalWrite(BuzzerTrigger,LOW);
+    digitalWrite(TrappedLed, LOW);;
+    digitalWrite(BuzzerTrigger, LOW);
     delay(300);
     lcd.clear();
-    lcd.setCursor(0,0);
+    lcd.setCursor(0, 0);
     lcd.print("People trapped");
-    lcd.setCursor(0,1);
+    lcd.setCursor(0, 1);
     lcd.print(total_number_of_people);
     delay(2000);
-    }
-  if (total_number_of_people <= 0){
-    digitalWrite(BuzzerTrigger,LOW);
-    digitalWrite(AllClearLed,HIGH);
+  }
+  if (total_number_of_people <= 0) {
+    digitalWrite(BuzzerTrigger, LOW);
+    digitalWrite(AllClearLed, HIGH);
     delay(300);
-    digitalWrite(AllClearLed,LOW);
+    digitalWrite(AllClearLed, LOW);
     delay(300);
     lcd.clear();
-    lcd.setCursor(0,0);
+    lcd.setCursor(0, 0);
     lcd.print("ALL CLEAR");
-    lcd.setCursor(0,1);
+    lcd.setCursor(0, 1);
     lcd.print(total_number_of_people);
     delay(2000);
-    }
+  }
 }
