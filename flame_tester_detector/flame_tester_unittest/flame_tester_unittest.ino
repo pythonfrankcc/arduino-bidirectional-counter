@@ -1,5 +1,5 @@
 //digital pin connected to flame_Sensor
-#define flame_sensor A0
+#define flame_sensor 4
 //storing the value by the flame sensor
 int flame_detected;
 void setup() {
@@ -7,13 +7,13 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(flame_sensor, INPUT) ;
 
-}
+} 
 
 void loop() {
   // put your main code here, to run repeatedly:
   //read digital output and store it in variable
   flame_detected = digitalRead(flame_sensor);
-  if (flame_detected == 1)
+  if (flame_detected == 0)
   {
     Serial.println("Flame detected...! take action immediately.");
     //digitalWrite(buzzer, HIGH);
